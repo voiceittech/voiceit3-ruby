@@ -78,7 +78,7 @@ then
       s.metadata       = {'documentation_uri' => 'https://api.voiceit.io?ruby'}
     end" > ./VoiceIt2.gemspec
     gem build VoiceIt2.gemspec
-    gem push "VoiceIt2-"$version".gem" 1>&2
+    gem push "VoiceIt3-"$version".gem" 1>&2
 
     if [ "$?" != "0" ]
     then
