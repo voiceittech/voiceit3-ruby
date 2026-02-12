@@ -121,8 +121,7 @@ then
         formattedmessages=$formattedmessages'|'$i
       done
 
-      json='{"authenticationPassword":"'$EMAILAUTHPASS'", "messages" : "'$formattedmessages'", "packageManaged": "true", "instructions": "gem update VoiceIt2</code></div><br />"}'
-      curl -X POST -H "Content-Type: application/json" -d $json "https://api.voiceit.io/platform/35"
+      curl -X POST -H "X-Admin-Password: $EMAILAUTHPASS" --data-urlencode "messages=$formattedmessages" -d "packageManaged=true" --data-urlencode "instructions=gem update VoiceIt2</code></div><br />" "https://api.voiceit.io/platform/35"
     fi
     exit 0
 
