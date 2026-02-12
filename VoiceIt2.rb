@@ -106,19 +106,6 @@ class VoiceIt2
       end
   end
 
-  def switchSubAccountType(subAccountAPIKey)
-    return RestClient::Request.new(
-      :method => :post,
-      :url => @base_url + '/subaccount/' + subAccountAPIKey + '/switchType' + @notification_url,
-      :user => @api_key,
-      :password => @api_token,
-      :headers => {
-        platformId: PLATFORM_ID,
-        platformVersion: VERSION
-      }).execute
-    rescue => e
-        e.response
-  end
 
   def createUnmanagedSubAccount(firstName, lastName, email, password, contentLanguage)
     return  RestClient::Request.new(
