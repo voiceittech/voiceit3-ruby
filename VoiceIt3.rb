@@ -3,7 +3,7 @@ require 'rest-client'
 require 'cgi'
 
 
-class VoiceIt2
+class VoiceIt3
 
   VERSION = '3.7.1'
   PLATFORM_ID = '35'
