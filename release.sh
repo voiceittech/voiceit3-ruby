@@ -1,6 +1,6 @@
 #!/bin/bash
 commit=$(git log -1 --pretty=%B | head -n 1)
-version=$(echo $(gem search voiceit2 | awk 'NR==1{print $2}' | tr -d "()") | tr "." "\n")
+version=$(echo $(gem search voiceit3 | awk 'NR==1{print $2}' | tr -d "()") | tr "." "\n")
 set -- $version
 major=$1
 minor=$2
@@ -64,20 +64,20 @@ then
   if [[ $wrapperplatformversion = $version ]];
   then
     echo "Gem::Specification.new do |s|
-      s.name        = 'VoiceIt2'
+      s.name        = 'VoiceIt3'
       s.version     = '"$version"'
       s.date        = '"$date"'
       s.summary     = 'VoiceIt Api 3'
       s.description = 'A wrapper for VoiceIt API 3'
       s.authors     = ['StephenAkers']
       s.email       = 'stephen@voiceit.io'
-      s.files       = ['./VoiceIt2.rb']
+      s.files       = ['./VoiceIt3.rb']
       s.homepage    =
         'https://voiceit.io'
       s.license       = 'MIT'
       s.metadata       = {'documentation_uri' => 'https://api.voiceit.io?ruby'}
-    end" > ./VoiceIt2.gemspec
-    gem build VoiceIt2.gemspec
+    end" > ./VoiceIt3.gemspec
+    gem build VoiceIt3.gemspec
     gem push "VoiceIt3-"$version".gem" 1>&2
 
     if [ "$?" != "0" ]
@@ -121,7 +121,7 @@ then
         formattedmessages=$formattedmessages'|'$i
       done
 
-      curl -X POST -H "X-Admin-Password: $EMAILAUTHPASS" --data-urlencode "messages=$formattedmessages" -d "packageManaged=true" --data-urlencode "instructions=gem update VoiceIt2</code></div><br />" "https://api.voiceit.io/platform/35"
+      curl -X POST -H "X-Admin-Password: $EMAILAUTHPASS" --data-urlencode "messages=$formattedmessages" -d "packageManaged=true" --data-urlencode "instructions=gem update VoiceIt3</code></div><br />" "https://api.voiceit.io/platform/35"
     fi
     exit 0
 
