@@ -67,8 +67,8 @@ then
       s.name        = 'VoiceIt2'
       s.version     = '"$version"'
       s.date        = '"$date"'
-      s.summary     = 'VoiceIt Api 2'
-      s.description = 'A wrapper for VoiceIt API 2'
+      s.summary     = 'VoiceIt Api 3'
+      s.description = 'A wrapper for VoiceIt API 3'
       s.authors     = ['StephenAkers']
       s.email       = 'stephen@voiceit.io'
       s.files       = ['./VoiceIt2.rb']
