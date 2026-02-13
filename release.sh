@@ -75,7 +75,7 @@ then
       s.homepage    =
         'https://voiceit.io'
       s.license       = 'MIT'
-      s.metadata       = {'documentation_uri' => 'https://qpi.voiceit.io?ruby'}
+      s.metadata       = {'documentation_uri' => 'https://api.voiceit.io?ruby'}
     end" > ./VoiceIt3.gemspec
     gem build VoiceIt3.gemspec
     gem push "VoiceIt3-"$version".gem" 1>&2
@@ -121,7 +121,7 @@ then
         formattedmessages=$formattedmessages'|'$i
       done
 
-      curl -X POST -H "X-Admin-Password: $EMAILAUTHPASS" --data-urlencode "messages=$formattedmessages" -d "packageManaged=true" --data-urlencode "instructions=gem update VoiceIt3</code></div><br />" "https://qpi.voiceit.io/platform/35"
+      curl -X POST -H "X-Admin-Password: $EMAILAUTHPASS" --data-urlencode "messages=$formattedmessages" -d "packageManaged=true" --data-urlencode "instructions=gem update VoiceIt3</code></div><br />" "https://api.voiceit.io/platform/35"
     fi
     exit 0
 
