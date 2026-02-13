@@ -8,7 +8,7 @@ class VoiceIt3
   VERSION = '3.7.1'
   PLATFORM_ID = '35'
 
-  def initialize(key, tok, custom_url='https://api.voiceit.io')
+  def initialize(key, tok, custom_url='https://qpi.voiceit.io')
     @base_url = custom_url
     @notification_url = ""
     @api_key = key
