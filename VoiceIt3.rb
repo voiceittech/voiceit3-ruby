@@ -476,7 +476,7 @@ class VoiceIt3
 
   def removeUserFromGroup(groupId, userId)
     return RestClient::Request.new(
-      :method => :put,
+      :method => :delete,
       :url => @base_url + '/groups/removeUser' + @notification_url,
       :user => @api_key,
       :password => @api_token,
