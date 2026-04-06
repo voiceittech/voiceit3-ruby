@@ -6,24 +6,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
       - run: gem install rest-client
-      - name: Run API test
+      - name: Run full API test
         env:
           VOICEIT_API_KEY: ${{ secrets.VOICEIT_API_KEY }}
           VOICEIT_API_TOKEN: ${{ secrets.VOICEIT_API_TOKEN }}
-        run: |
-          ruby -e "
-          require 'json'
-          require './VoiceIt3.rb'
-          vi = VoiceIt3.new(ENV['VOICEIT_API_KEY'], ENV['VOICEIT_API_TOKEN'])
-          r = JSON.parse(vi.createUser)
-          puts 'CreateUser: ' + r['responseCode']
-          r = JSON.parse(vi.getAllUsers)
-          puts 'GetAllUsers: ' + r['responseCode']
-          abort('FAILED') unless r['responseCode'] == 'SUCC'
-          puts 'All Ruby tests passed!'
-          "
+        run: ruby test_example.rb
