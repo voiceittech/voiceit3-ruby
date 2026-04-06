@@ -10,7 +10,8 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-      - run: gem install rest-client
+          bundler-cache: false
+      - run: gem install rest-client json
       - name: Run full API test
         env:
           VOICEIT_API_KEY: ${{ secrets.VOICEIT_API_KEY }}
