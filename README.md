@@ -2,7 +2,7 @@
 
 [![API Test](https://github.com/voiceittech/voiceit3-ruby/actions/workflows/test.yml/badge.svg)](https://github.com/voiceittech/voiceit3-ruby/actions/workflows/test.yml)
 [![Dependabot](https://img.shields.io/github/issues-pr/voiceittech/voiceit3-ruby/dependencies?label=dependabot&logo=dependabot&color=025e8c)](https://github.com/voiceittech/voiceit3-ruby/pulls?q=is%3Apr+label%3Adependencies)
-[![Version](https://img.shields.io/badge/version-3.0.0-blue)](https://github.com/voiceittech/voiceit3-ruby)
+[![Version](https://img.shields.io/badge/version-3.8.2-blue)](https://github.com/voiceittech/voiceit3-ruby)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/voiceittech/voiceit3-ruby/blob/main/LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Ruby-lightgrey)](https://github.com/voiceittech/voiceit3-ruby)
 [![VoiceIt API](https://img.shields.io/badge/VoiceIt-API%203.0-blue)](https://voiceit.io)
