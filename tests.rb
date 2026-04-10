@@ -1,4 +1,4 @@
-require './VoiceIt3.rb'
+require './voiceit3.rb'
 require 'json'
 require "test/unit"
 require 'open-uri'
