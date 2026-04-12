@@ -1,7 +1,7 @@
 require 'json'
 require './voiceit3.rb'
 vi = VoiceIt3.new(ENV['VOICEIT_API_KEY'], ENV['VOICEIT_API_TOKEN'])
-phrase = "never forget tomorrow is a new day"
+phrase = "Never forget tomorrow is a new day"
 td = "test-data"
 errors = 0
 
