@@ -5,7 +5,7 @@ require 'cgi'
 
 class VoiceIt3
 
-  VERSION = '3.7.1'
+  VERSION = '3.8.3'
   PLATFORM_ID = '35'
 
   def initialize(key, tok, custom_url='https://api.voiceit.io')
