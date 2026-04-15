@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'rest-client'
-require 'cgi'
+require 'erb'
 
 
 class VoiceIt3
@@ -16,7 +16,7 @@ class VoiceIt3
   end
 
   def addNotificationUrl(notificationURL)
-    @notification_url = "?notificationURL=" + CGI.escape(notificationURL)
+    @notification_url = "?notificationURL=" + ERB::Util.url_encode(notificationURL)
   end
 
   def removeNotificationUrl()
@@ -54,7 +54,7 @@ class VoiceIt3
   def checkUserExists(userId)
     return RestClient::Request.new(
       :method => :get,
-      :url => @base_url + '/users/' + CGI.escape(userId) + @notification_url,
+      :url => @base_url + '/users/' + ERB::Util.url_encode(userId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -68,7 +68,7 @@ class VoiceIt3
   def deleteUser(userId)
     return RestClient::Request.new(
       :method => :delete,
-      :url => @base_url + '/users/' + CGI.escape(userId) + @notification_url,
+      :url => @base_url + '/users/' + ERB::Util.url_encode(userId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -136,7 +136,7 @@ class VoiceIt3
   def regenerateSubAccountAPIToken(subAccountAPIKey)
     return RestClient::Request.new(
       :method => :post,
-      :url => @base_url + '/subaccount/' + CGI.escape(subAccountAPIKey) + @notification_url,
+      :url => @base_url + '/subaccount/' + ERB::Util.url_encode(subAccountAPIKey) + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -150,7 +150,7 @@ class VoiceIt3
   def deleteSubAccount(subAccountAPIKey)
     return RestClient::Request.new(
       :method => :delete,
-      :url => @base_url + '/subaccount/' + CGI.escape(subAccountAPIKey) + @notification_url,
+      :url => @base_url + '/subaccount/' + ERB::Util.url_encode(subAccountAPIKey) + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -165,7 +165,7 @@ class VoiceIt3
   def getGroupsForUser(userId)
     return RestClient::Request.new(
       :method => :get,
-      :url => @base_url + '/users/' + CGI.escape(userId) + '/groups' + @notification_url,
+      :url => @base_url + '/users/' + ERB::Util.url_encode(userId) + '/groups' + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -180,7 +180,7 @@ class VoiceIt3
   def getAllVoiceEnrollments(userId)
     return RestClient::Request.new(
       :method => :get,
-      :url => @base_url + '/enrollments/voice/' + userId + @notification_url,
+      :url => @base_url + '/enrollments/voice/' + ERB::Util.url_encode(userId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -195,7 +195,7 @@ class VoiceIt3
   def getAllVideoEnrollments(userId)
     return RestClient::Request.new(
       :method => :get,
-      :url => @base_url + '/enrollments/video/' + userId + @notification_url,
+      :url => @base_url + '/enrollments/video/' + ERB::Util.url_encode(userId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -210,7 +210,7 @@ class VoiceIt3
   def deleteAllEnrollments(userId)
     return RestClient::Request.new(
       :method => :delete,
-      :url => @base_url + '/enrollments/' + CGI.escape(userId) + '/all' + @notification_url,
+      :url => @base_url + '/enrollments/' + ERB::Util.url_encode(userId) + '/all' + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -225,7 +225,7 @@ class VoiceIt3
   def getAllFaceEnrollments(userId)
     return RestClient::Request.new(
       :method => :get,
-      :url => @base_url + '/enrollments/face/' + userId + @notification_url,
+      :url => @base_url + '/enrollments/face/' + ERB::Util.url_encode(userId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -398,7 +398,7 @@ class VoiceIt3
   def getPhrases(contentLanguage)
     return RestClient::Request.new(
       :method => :get,
-      :url => @base_url + '/phrases/' + CGI.escape(contentLanguage) + @notification_url,
+      :url => @base_url + '/phrases/' + ERB::Util.url_encode(contentLanguage) + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -412,7 +412,7 @@ class VoiceIt3
   def getGroup(groupId)
     return RestClient::Request.new(
       :method => :get,
-      :url => @base_url + '/groups/' + CGI.escape(groupId) + @notification_url,
+      :url => @base_url + '/groups/' + ERB::Util.url_encode(groupId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -426,7 +426,7 @@ class VoiceIt3
   def groupExists(groupId)
     return RestClient::Request.new(
       :method => :get,
-      :url => @base_url + '/groups/' + CGI.escape(groupId) + '/exists' + @notification_url,
+      :url => @base_url + '/groups/' + ERB::Util.url_encode(groupId) + '/exists' + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -496,7 +496,7 @@ class VoiceIt3
   def deleteGroup(groupId)
     return RestClient::Request.new(
       :method => :delete,
-      :url => @base_url + '/groups/' + CGI.escape(groupId) + @notification_url,
+      :url => @base_url + '/groups/' + ERB::Util.url_encode(groupId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -794,7 +794,7 @@ class VoiceIt3
   def createUserToken(userId, secondsToTimeout)
     return RestClient::Request.new(
       :method => :post,
-      :url => @base_url + '/users/' + CGI.escape(userId) + '/token?timeOut=' + secondsToTimeout.to_s,
+      :url => @base_url + '/users/' + ERB::Util.url_encode(userId) + '/token?timeOut=' + secondsToTimeout.to_s,
       :user => @api_key,
       :password => @api_token,
       :headers => {
@@ -808,7 +808,7 @@ class VoiceIt3
   def expireUserTokens(userId)
     return RestClient::Request.new(
       :method => :post,
-      :url => @base_url + '/users/' + CGI.escape(userId) + '/expireTokens',
+      :url => @base_url + '/users/' + ERB::Util.url_encode(userId) + '/expireTokens',
       :user => @api_key,
       :password => @api_token,
       :headers => {
