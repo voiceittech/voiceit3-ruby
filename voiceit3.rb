@@ -13,6 +13,7 @@ class VoiceIt3
     @notification_url = ""
     @api_key = key
     @api_token = tok
+    @timeout = 30
   end
 
   def addNotificationUrl(notificationURL)
@@ -29,6 +30,7 @@ class VoiceIt3
       :url => @base_url + '/users' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -43,6 +45,7 @@ class VoiceIt3
       :url => @base_url + '/users' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -57,6 +60,7 @@ class VoiceIt3
       :url => @base_url + '/users/' + ERB::Util.url_encode(userId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -71,6 +75,7 @@ class VoiceIt3
       :url => @base_url + '/users/' + ERB::Util.url_encode(userId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -86,6 +91,7 @@ class VoiceIt3
       :url => @base_url + '/subaccount/managed' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -113,6 +119,7 @@ class VoiceIt3
       :url => @base_url + '/subaccount/unmanaged' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -139,6 +146,7 @@ class VoiceIt3
       :url => @base_url + '/subaccount/' + ERB::Util.url_encode(subAccountAPIKey) + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -153,6 +161,7 @@ class VoiceIt3
       :url => @base_url + '/subaccount/' + ERB::Util.url_encode(subAccountAPIKey) + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -168,6 +177,7 @@ class VoiceIt3
       :url => @base_url + '/users/' + ERB::Util.url_encode(userId) + '/groups' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -183,6 +193,7 @@ class VoiceIt3
       :url => @base_url + '/enrollments/voice/' + ERB::Util.url_encode(userId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -198,6 +209,7 @@ class VoiceIt3
       :url => @base_url + '/enrollments/video/' + ERB::Util.url_encode(userId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -213,6 +225,7 @@ class VoiceIt3
       :url => @base_url + '/enrollments/' + ERB::Util.url_encode(userId) + '/all' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -228,6 +241,7 @@ class VoiceIt3
       :url => @base_url + '/enrollments/face/' + ERB::Util.url_encode(userId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -244,6 +258,7 @@ class VoiceIt3
         :url => @base_url + '/enrollments/voice' + @notification_url,
         :user => @api_key,
         :password => @api_token,
+      :timeout => @timeout,
         :headers => {
           platformId: PLATFORM_ID,
           platformVersion: VERSION
@@ -270,6 +285,7 @@ class VoiceIt3
       :url => @base_url + '/enrollments/voice/byUrl' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -295,6 +311,7 @@ class VoiceIt3
       :url => @base_url + '/enrollments/face' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -318,6 +335,7 @@ class VoiceIt3
       :url => @base_url + '/enrollments/face/byUrl' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -337,6 +355,7 @@ class VoiceIt3
       :url => @base_url + '/enrollments/video' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -362,6 +381,7 @@ class VoiceIt3
       :url => @base_url + '/enrollments/video/byUrl' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -387,6 +407,7 @@ class VoiceIt3
       :url => @base_url + '/groups' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -401,6 +422,7 @@ class VoiceIt3
       :url => @base_url + '/phrases/' + ERB::Util.url_encode(contentLanguage) + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -415,6 +437,7 @@ class VoiceIt3
       :url => @base_url + '/groups/' + ERB::Util.url_encode(groupId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -429,6 +452,7 @@ class VoiceIt3
       :url => @base_url + '/groups/' + ERB::Util.url_encode(groupId) + '/exists' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -443,6 +467,7 @@ class VoiceIt3
       :url => @base_url + '/groups' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -461,6 +486,7 @@ class VoiceIt3
       :url => @base_url + '/groups/addUser' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -480,6 +506,7 @@ class VoiceIt3
       :url => @base_url + '/groups/removeUser' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -499,6 +526,7 @@ class VoiceIt3
       :url => @base_url + '/groups/' + ERB::Util.url_encode(groupId) + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -513,6 +541,7 @@ class VoiceIt3
       :url => @base_url + '/verification/voice' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -538,6 +567,7 @@ class VoiceIt3
       :url => @base_url + '/verification/voice/byUrl' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -563,6 +593,7 @@ class VoiceIt3
       :url => @base_url + '/verification/face' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -586,6 +617,7 @@ class VoiceIt3
       :url => @base_url + '/verification/face/byUrl' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -605,6 +637,7 @@ class VoiceIt3
       :url => @base_url + '/verification/video' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -630,6 +663,7 @@ class VoiceIt3
       :url => @base_url + '/verification/video/byUrl' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -655,6 +689,7 @@ class VoiceIt3
       :url => @base_url + '/identification/voice' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -680,6 +715,7 @@ class VoiceIt3
       :url => @base_url + '/identification/voice/byUrl' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -705,6 +741,7 @@ class VoiceIt3
       :url => @base_url + '/identification/face' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -728,6 +765,7 @@ class VoiceIt3
       :url => @base_url + '/identification/face/byUrl' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -747,6 +785,7 @@ class VoiceIt3
       :url => @base_url + '/identification/video' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -772,6 +811,7 @@ class VoiceIt3
       :url => @base_url + '/identification/video/byUrl' + @notification_url,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -797,6 +837,7 @@ class VoiceIt3
       :url => @base_url + '/users/' + ERB::Util.url_encode(userId) + '/token?timeOut=' + secondsToTimeout.to_s,
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
@@ -811,6 +852,7 @@ class VoiceIt3
       :url => @base_url + '/users/' + ERB::Util.url_encode(userId) + '/expireTokens',
       :user => @api_key,
       :password => @api_token,
+      :timeout => @timeout,
       :headers => {
         platformId: PLATFORM_ID,
         platformVersion: VERSION
