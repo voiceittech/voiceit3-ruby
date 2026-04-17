@@ -5,3 +5,5 @@ VoiceIt3.gemspec
 *.jpeg
 *.jpg
 *.png
+.env
+.env.*
