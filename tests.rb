@@ -4,7 +4,7 @@ require "test/unit"
 require 'open-uri'
 require 'net/http'
 
-class TestVoiceIt3 < Test::Unit::TestCase
+class Testvoiceit3 < Test::Unit::TestCase
 
   def download_file(link, filename)
     File.open(filename, "wb") do |saved_file|
@@ -17,9 +17,9 @@ class TestVoiceIt3 < Test::Unit::TestCase
   def test_notification_url() # test webhook URL's
     viapikey = ENV['VIAPIKEY']
     viapitoken = ENV['VIAPITOKEN']
-    myVoiceIt = VoiceIt3.new(viapikey, viapitoken, 'https://api.voiceit.io')
+    myVoiceIt = voiceit3.new(viapikey, viapitoken, 'https://api.voiceit.io')
     if ENV['BOXFUSE_ENV'] == 'voiceittest'
-      File.write(ENV['HOME'] + '/' + 'platformVersion', VoiceIt3::VERSION)
+      File.write(ENV['HOME'] + '/' + 'platformVersion', voiceit3::VERSION)
     end
     myVoiceIt.addNotificationUrl('https://voiceit.io')
     assert_equal(myVoiceIt.notification_url, "?notificationURL=https%3A%2F%2Fvoiceit.io")
@@ -30,7 +30,7 @@ class TestVoiceIt3 < Test::Unit::TestCase
   def test_users_groups() # get all users, get all groups, create user, create group, add user to group, remove user from group, delete user delete group
     viapikey = ENV['VIAPIKEY']
     viapitoken = ENV['VIAPITOKEN']
-    myVoiceIt = VoiceIt3.new(viapikey, viapitoken, 'https://api.voiceit.io')
+    myVoiceIt = voiceit3.new(viapikey, viapitoken, 'https://api.voiceit.io')
     ret = JSON.parse(myVoiceIt.createUser())
     assert_equal(201, ret['status'])
     assert_equal('SUCC', ret['responseCode'])
@@ -93,7 +93,7 @@ class TestVoiceIt3 < Test::Unit::TestCase
   def test_sub_accounts()
     viapikey = ENV['VIAPIKEY']
     viapitoken = ENV['VIAPITOKEN']
-    myVoiceIt = VoiceIt3.new(viapikey, viapitoken, 'https://api.voiceit.io')
+    myVoiceIt = voiceit3.new(viapikey, viapitoken, 'https://api.voiceit.io')
     ret = JSON.parse(myVoiceIt.createManagedSubAccount('Test','Ruby', '', '', ''))
     assert_equal(201, ret['status'])
     assert_equal('SUCC', ret['responseCode'])
@@ -125,7 +125,7 @@ class TestVoiceIt3 < Test::Unit::TestCase
 
     viapikey = ENV['VIAPIKEY']
     viapitoken = ENV['VIAPITOKEN']
-    myVoiceIt = VoiceIt3.new(viapikey, viapitoken, 'https://api.voiceit.io')
+    myVoiceIt = voiceit3.new(viapikey, viapitoken, 'https://api.voiceit.io')
     userId1 = JSON.parse(myVoiceIt.createUser())['userId']
     userId2 = JSON.parse(myVoiceIt.createUser())['userId']
     groupId = JSON.parse(myVoiceIt.createGroup('Sample Group Description'))['groupId']
@@ -257,7 +257,7 @@ class TestVoiceIt3 < Test::Unit::TestCase
 
     viapikey = ENV['VIAPIKEY']
     viapitoken = ENV['VIAPITOKEN']
-    myVoiceIt = VoiceIt3.new(viapikey, viapitoken, 'https://api.voiceit.io')
+    myVoiceIt = voiceit3.new(viapikey, viapitoken, 'https://api.voiceit.io')
     userId1 = JSON.parse(myVoiceIt.createUser())['userId']
     userId2 = JSON.parse(myVoiceIt.createUser())['userId']
     groupId = JSON.parse(myVoiceIt.createGroup('Sample Group Description'))['groupId']
@@ -388,7 +388,7 @@ class TestVoiceIt3 < Test::Unit::TestCase
 
     viapikey = ENV['VIAPIKEY']
     viapitoken = ENV['VIAPITOKEN']
-    myVoiceIt = VoiceIt3.new(viapikey, viapitoken, 'https://api.voiceit.io')
+    myVoiceIt = voiceit3.new(viapikey, viapitoken, 'https://api.voiceit.io')
     userId1 = JSON.parse(myVoiceIt.createUser())['userId']
     userId2 = JSON.parse(myVoiceIt.createUser())['userId']
     groupId = JSON.parse(myVoiceIt.createGroup('Sample Group Description'))['groupId']
