@@ -3,7 +3,7 @@ require 'rest-client'
 require 'erb'
 
 
-class voiceit3
+class VoiceIt3
 
   VERSION = '3.8.4'
   PLATFORM_ID = '35'
